@@ -24,6 +24,9 @@ var Rooms = {
       Rooms._rooms.push(room);
     }
     Rooms._selectedRoom = room;
+
+    // RoomsView.render();
+    MessagesView.render();
   },
 
   //getAllRooms

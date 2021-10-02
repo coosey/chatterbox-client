@@ -13,13 +13,13 @@ var MessageView = {
   // var renderedMessage = render(message);
 
   render: _.template(`
-      <div class="chat">
+      <div class="chat" id="<%=message_id%>">
         <div class="username"><%-username%></div>
-        <div>
+        <section>
           <p>
             <%-text%>
           </p>
-        </div>
+        </section>
       </div>
     `)
 

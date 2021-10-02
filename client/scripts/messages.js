@@ -16,7 +16,14 @@ var Messages = {
   // function pushNewMessageFromServer(message)
   //   _data[message.message_id] = message
   pushNewMessage: function (message) {
+    var rerender = false;
+    if (this._data[message.message_id] === undefined) {
+      rerender = true;
+    }
     this._data[message.message_id] = message;
+    if (rerender) {
+      MessagesView.render();
+    }
   },
 
   // function getAllMessages()
@@ -25,12 +32,6 @@ var Messages = {
     return this._data;
   },
 
-  // function getAllMessagesFromRoom(roomname)
-  // var array = []
-  // for (key in _data)
-  //   if(_data[key].roomname === roomname)
-  //     array.push(_data[key])
-  // return array
   getAllMessagesFromRoom: function (roomName) {
     var array = [];
     for (key in this._data) {

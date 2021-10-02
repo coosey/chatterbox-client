@@ -35,6 +35,7 @@ var RoomsView = {
 
     var room = RoomsView.$select.find(':selected').text();
     Rooms.selectRoom(room);
+    // RoomsView.render();
   },
 
   handleClick: function (event) {
@@ -48,7 +49,6 @@ var RoomsView = {
     // call Rooms.selectRoom
     Rooms.selectRoom(newRoomName);
 
-    // TODO: move render calls to model
     RoomsView.render();
   }
 

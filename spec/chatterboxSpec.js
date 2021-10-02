@@ -67,6 +67,7 @@ describe('chatterbox', function() {
   describe('chatroom behavior', function() {
     it('should be able to add messages to the DOM', function() {
       var message = {
+        message_id: '0',
         username: 'Mel Brooks',
         text: 'Never underestimate the power of the Schwartz!',
         roomname: 'lobby'
@@ -84,18 +85,19 @@ describe('chatterbox', function() {
 
   describe('events', function() {
     it('should add a friend upon clicking their username', function() {
-      sinon.spy(Friends, 'toggleStatus');
+      sinon.spy(Friends, 'addFriends');
 
       App.initialize();
       MessagesView.renderMessage({
+        message_id: '0',
         username: 'Mel Brooks',
         text: 'I didn\'t get a harumph outa that guy.!',
         roomname: 'lobby'
       });
       $('#chats').find('.username').trigger('click');
-      expect(Friends.toggleStatus.called).to.be.true;
+      expect(Friends.addFriends.called).to.be.true;
 
-      Friends.toggleStatus.restore();
+      Friends.addFriends.restore();
     });
 
     it('should add a room when clicking add', function() {
