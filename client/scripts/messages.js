@@ -15,9 +15,32 @@ var Messages = {
 
   // function pushNewMessageFromServer(message)
   //   _data[message.message_id] = message
+  pushNewMessage: function (message) {
+    this._data[message.message_id] = message;
+  },
 
   // function getAllMessages()
   //   return _data
+  getAllMessages: function () {
+    return this._data;
+  },
 
   // function getAllMessagesFromRoom(roomname)
+  // var array = []
+  // for (key in _data)
+  //   if(_data[key].roomname === roomname)
+  //     array.push(_data[key])
+  // return array
+  getAllMessagesFromRoom: function (roomName) {
+    var array = [];
+    for (key in this._data) {
+      if (this._data[key].roomname === roomName) {
+        array.push(this._data[key]);
+      }
+    }
+
+    // rerender Messages ???
+
+    return array;
+  }
 };
